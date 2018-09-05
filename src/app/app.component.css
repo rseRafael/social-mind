@@ -1,0 +1,13 @@
+#nav-div{
+    display: flex;
+    flex-direction: column;
+    border: 1px dashed lightblue; 
+    height: 100%;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%; 
+}
+
+.route-link{
+    margin-bottom: 30%;
+}
