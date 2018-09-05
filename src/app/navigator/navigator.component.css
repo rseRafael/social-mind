@@ -1,0 +1,10 @@
+#nav-div{
+    display: flex;
+    flex-direction: column;
+}
+.links{
+    margin-left: 5%;
+}
+.selected{
+    background-color: blue;
+}

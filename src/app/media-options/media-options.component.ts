@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { createInterface } from 'readline';
 
 @Component({
   selector: 'app-media-options',

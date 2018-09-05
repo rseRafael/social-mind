@@ -1,0 +1,7 @@
+<div id="nav-div">
+  <a routerLink="/seemedia" class="links" (click)="onClick()" [class.selected]="seemedia==true">See Media</a>
+  <a routerLink="/addmedia" class="links">Add Media</a>
+  <a routerLink="/mediaoptions" class="links">Media Options</a>
+  <a (click)="back()" class="links">Voltar</a>
+  <a (click)="onClick('/seemedia')" class="links">Ir</a>
+</div>
