@@ -14,14 +14,29 @@ export class NavigatorComponent implements OnInit {
   constructor(private router: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
+    this.moveBtnDiv();
+    window.onresize = (event) => {
+     this.moveBtnDiv();
+    }
   }
 
-  onClick(){
-   this.seemedia = true;
-   console.log(this.seemedia);
+  onClick() {
+    this.seemedia = true;
+    console.log(this.seemedia);
   }
-  
-  back(){
+
+  back() {
     this.location.back();
+  }
+
+  moveBtnDiv(){
+    var navDiv = document.getElementById("nav-div");
+    var btnDiv = document.getElementById("btn-div");
+    var rightPosition = `-${navDiv.clientWidth + 2}px`;
+    var bottomPosition = `${navDiv.clientHeight + 2}px`;
+    var size = `${Math.round(navDiv.clientWidth * 20 /100)}px`;
+    btnDiv.style.right = rightPosition;
+    btnDiv.style.bottom = bottomPosition;
+    btnDiv.style.height = size;
   }
 }

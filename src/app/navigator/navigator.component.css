@@ -1,10 +1,19 @@
 #nav-div{
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
-.links{
-    margin-left: 5%;
-}
+
 .selected{
-    background-color: blue;
+    background-color: lightgrey;
+}
+
+#btn-div{
+    margin: 0px;
+    height: 4%;
+    width: 25%;
+    background-color: lightsalmon;
+    position: relative;
+
 }
