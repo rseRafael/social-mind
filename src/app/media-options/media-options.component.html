@@ -1,17 +1,17 @@
-<div class="main-div">
-  
-  <navigator class="nav-div"></navigator>
+<div class="media-main-div" id="media-main-content">
 
-  <div class="content-div">
+  <div class="media-options-menu">
 
-    <div *ngFor="let media of medias" click="onSelect(media.name)" class="row arow">
-
-      <img src="media.imgSrc" class="col-sm-2 border"/>
-
-      <p class="col-sm-10 border">{{media.name}}</p>
+    <div *ngFor="let media of medias" click="onSelect(media.name)" class="media-row media-button" id={{media.divId}}>
+      <div class="media-col-2">
+        <i class={{media.class}} id={{media.iconDiv}}></i>
+      </div>
+     <div class="media-col-10">
+        <p class="media-paragraph">{{media.name}}</p>
+     </div>
       
     </div>
 
-  </div> 
+  </div>    
   
 </div>

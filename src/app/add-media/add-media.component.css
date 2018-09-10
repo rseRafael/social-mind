@@ -1,26 +1,7 @@
-.main-div{
-    padding: 0.1%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.nav-div{
-    border: 1px dashed lightblue;
-    height: 100%;
-    width: 10%;
-}
-
-.content-div{
+.component-div{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    overflow: scroll;
-    height: 100%;
-    width: 90%;
-    padding: 2%;
+    justify-content: center;
+    background-color: lightgrey;
+    align-items: flex-end;
 }

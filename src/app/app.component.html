@@ -1,1 +1,24 @@
-<router-outlet></router-outlet>
+<div id="app-main-div"> 
+    <navigator id="app-nav-div"
+                [class.app-anim-nav-open]="open == true && shouldAnimate == true" 
+                [class.app-anim-nav-close]="open == false && shouldAnimate == true" 
+                [class.app-nav-open]="open == true && animated == true"
+                [class.app-nav-close]="open == false && animated == true">
+    </navigator>
+    <div id="app-content-div"
+         [class.app-anim-content-close]="open == true && shouldAnimate == true" 
+         [class.app-anim-content-open]="open == false && shouldAnimate == true" 
+         [class.app-content-close]="open == true && animated == true"
+         [class.app-content-open]="open == false && animated == true">
+        <div class="app-column app-one">
+            <div id="app-button-div" (click)="btnClick()">
+                <div class="app-white-block"></div>
+                <div class="app-white-block"></div>
+                <div class="app-white-block"></div>
+            </div>
+        </div>
+        <div class="app-column app-two" id="app-outlet">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
