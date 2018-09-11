@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutChangesService } from './layout-changes.service';
 import { setCurrentInjector } from '@angular/core/src/di/injector';
 @Component({
   selector: 'app-root',
@@ -12,7 +11,7 @@ export class AppComponent implements OnInit {
   animated = false;
   shouldAnimate = false;
   init = true;
-  constructor(private layoutchange: LayoutChangesService) {
+  constructor() {
 
   }
   ngOnInit() {

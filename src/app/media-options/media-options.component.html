@@ -1,8 +1,8 @@
 <div class="media-main-div" id="media-main-content">
 
   <div class="media-options-menu">
-
-    <div *ngFor="let media of medias" click="onSelect(media.name)" class="media-row media-button" id={{media.divId}}>
+    <h1>{{Header}}</h1>
+    <div *ngFor="let media of medias" (click)="redirect()" class="media-row media-button" id={{media.divId}}>
       <div class="media-col-2">
         <i class={{media.class}} id={{media.iconDiv}}></i>
       </div>

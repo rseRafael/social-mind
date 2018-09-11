@@ -11,7 +11,7 @@ export class AddMediaComponent implements OnInit {
 
   ngOnInit() {
     this.resizeComponent();
-    window.onresize = ()=>{
+    window.onresize = () => {
       this.resizeComponent();
     }
   }

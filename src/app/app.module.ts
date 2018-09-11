@@ -8,6 +8,8 @@ import { MediaOptionsComponent } from './media-options/media-options.component';
 import { NavigatorComponent } from './navigator/navigator.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import { RedirectErrorDialogComponent } from './redirect-error-dialog/redirect-error-dialog.component';
 
 
 @NgModule({
@@ -16,13 +18,15 @@ import {MatInputModule} from '@angular/material/input';
     SeeMediaComponent,
     AddMediaComponent,
     MediaOptionsComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    RedirectErrorDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     BrowserAnimationsModule,
     MatInputModule,
+    MatDialogModule,
 
   ],
   providers: [],

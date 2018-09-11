@@ -8,7 +8,8 @@ import { MediaOptionsComponent } from './media-options/media-options.component';
 const routes: Routes = [
   { path: 'seemedia', component: SeeMediaComponent },
   { path: 'addmedia', component: AddMediaComponent },
-  { path: 'mediaoptions', component: MediaOptionsComponent },
+  { path: 'addmedia/options', component: MediaOptionsComponent},
+  { path: 'seemedia/options', component: MediaOptionsComponent},
 ];
 
 @NgModule({

@@ -3,5 +3,11 @@
     flex-direction: column;
     justify-content: center;
     background-color: lightgrey;
-    align-items: flex-end;
+    align-items: center;
+}
+
+.addmedia-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }

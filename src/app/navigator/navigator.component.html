@@ -1,9 +1,9 @@
 <div id="nav-div">
-  <div routerLink="/seemedia" class="links" (click)="onClick()" [class.selected]="seemedia==true"><p>See Media</p></div>
-  <div routerLink="/addmedia" class="links"><p>Add Media</p></div>
-  <div routerLink="/mediaoptions" class="links"><p>Media Options</p></div>
-  <div (click)="back()" class="links"><p>Voltar</p></div>
+  <div (click)="goToSeeMedia()"  class="links" [class.selected]="path === '/seemedia'"><p>Ver Mídias</p></div>
+  <div (click)="goToAddMedia()" class="links"  [class.selected]="path === '/addmedia'"><p>Adicionar Mídia</p></div>
+  <div (click)="goBack()" class="links"><p>Voltar</p></div>
   <div class="links empty">
     <p>powered by <span class="gpe-G">G</span>PE with S2</p>
   </div>
+ 
 </div>

@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RouteControllerService } from '../route-controler.service';
+/*
 import { ActivatedRoute } from '@angular/router';
+Location's go function not working.
+*/
 import { Location } from '@angular/common';
+
+
 
 @Component({
   selector: 'navigator',
@@ -10,33 +17,50 @@ import { Location } from '@angular/common';
 export class NavigatorComponent implements OnInit {
 
   public seemedia = false;
+  public path: String = null;
 
-  constructor(private router: ActivatedRoute, private location: Location) { }
+  constructor(private router: Router, private location: Location, private routeCtrl: RouteControllerService) {
+  }
 
   ngOnInit() {
-    this.moveBtnDiv();
-    window.onresize = (event) => {
-     this.moveBtnDiv();
+  }
+
+  goToSeeMedia() {
+    this.router.navigateByUrl("/seemedia/options")
+    .then((value) => {
+      if (value) {
+        this.path = '/seemedia';
+        this.routeCtrl.destinyPath = '/seemedia/content';
+      }
+      else {
+      }
+    });
+  }
+
+  goToAddMedia() {
+    this.router.navigateByUrl("/addmedia/options")
+    .then((value) => {
+      if (value) {
+        this.path = '/addmedia';
+        this.routeCtrl.destinyPath = '/addmedia/';
+      }
+      else {
+      }
+    });
+  }
+
+  goBack() {
+    this.location.back();
+    var path = this.location.path();
+    if (path.search("seemedia") != -1) {
+      this.path = '/seemedia';
+    }
+    else if (path.search("addmedia")) {
+      this.path = '/addmedia';
+    }
+    else {
+      this.path = null;
     }
   }
 
-  onClick() {
-    this.seemedia = true;
-    console.log(this.seemedia);
-  }
-
-  back() {
-    this.location.back();
-  }
-
-  moveBtnDiv(){
-    var navDiv = document.getElementById("nav-div");
-    var btnDiv = document.getElementById("btn-div");
-    var rightPosition = `-${navDiv.clientWidth + 2}px`;
-    var bottomPosition = `${navDiv.clientHeight + 2}px`;
-    var size = `${Math.round(navDiv.clientWidth * 20 /100)}px`;
-    btnDiv.style.right = rightPosition;
-    btnDiv.style.bottom = bottomPosition;
-    btnDiv.style.height = size;
-  }
 }
