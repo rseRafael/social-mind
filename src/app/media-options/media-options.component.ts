@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteControllerService} from '../route-controler.service';
+import { RouteControllerService } from '../route-controler.service';
 import { Router } from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { RedirectErrorDialogComponent } from '../redirect-error-dialog/redirect-error-dialog.component';
-import { NavigatorComponent } from '../navigator/navigator.component';
+import { Location } from '@angular/common';
 
-interface Media{
+interface Media {
   name: String;
   color: String;
   divId: String;
   iconDiv: String;
-  class:String;
+  class: String;
 }
 
 @Component({
@@ -21,20 +21,21 @@ interface Media{
 export class MediaOptionsComponent implements OnInit {
   public Header: String = '';
   public medias: Array<Media> = [
-    {name: "Facebook", color: "#3c579e", divId:"media-div-fb", class: "media-icon fab fa-facebook-f", iconDiv: "media-icon-fb" },
-    {name: "Instagram", color: "", divId:"media-div-ig", class: "media-icon fab fa-instagram", iconDiv: "media-icon-ig"},
-    {name: "Twitter", color: "#17ccff", divId:"media-div-tt", class: "media-icon fab fa-twitter", iconDiv: "media-icon-tt"},
-    {name: "Youtube",color: "#da281e", divId:"media-div-yt", class: "media-icon fab fa-youtube", iconDiv: "media-icon-yt"},
+    { name: "facebook", color: "#3c579e", divId: "media-div-fb", class: "media-icon fab fa-facebook-f", iconDiv: "media-icon-fb" },
+    { name: "instagram", color: "", divId: "media-div-ig", class: "media-icon fab fa-instagram", iconDiv: "media-icon-ig" },
+    { name: "twitter", color: "#17ccff", divId: "media-div-tt", class: "media-icon fab fa-twitter", iconDiv: "media-icon-tt" },
+    { name: "youtube", color: "#da281e", divId: "media-div-yt", class: "media-icon fab fa-youtube", iconDiv: "media-icon-yt" },
   ]
-  constructor(private routeCtrl: RouteControllerService, private router: Router, private dialog: MatDialog ){ 
+  constructor(private routeCtrl: RouteControllerService, private router: Router, private dialog: MatDialog, private location: Location) {
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.setHeader();
     this.resizeComponent();
+    console.log("EBA");
   }
 
-  resizeComponent(){
+  resizeComponent() {
     var outlet = document.getElementById("app-outlet");
     var height = `${outlet.clientHeight}px`;
     var width = `${outlet.clientWidth}px`;
@@ -46,30 +47,38 @@ export class MediaOptionsComponent implements OnInit {
 
   }
 
-  setHeader(){
-    if(this.routeCtrl.destinyPath.search("addmedia") != -1){
-      this.Header = "Monitore uma das mídias abaixo: ";
+  setHeader() {
+    try{
+      var currentPath = this.location.path();
+      if (currentPath.search("addmedia") != -1) {
+        this.Header = "Monitore uma das mídias abaixo: ";
+      }
+      else if (currentPath.search("seemedia") != -1) {
+        this.Header = "Veja os Posts uma das mídias abaixo: ";
+      }
+      else {
+        this.Header = "Selecione uma das mídias abaixo: ";
+      }
     }
-    else if(this.routeCtrl.destinyPath.search("seemedia") != -1){
-      this.Header = "Veja os Posts uma das mídias abaixo: ";
-    }
-    else{
-      this.Header = "Selecione uma das mídias abaixo: "
+    catch(err){
+      this.Header = "Selecione uma das mídias abaixo: ";
     }
   }
+   
 
-  redirect(){
-    if(this.routeCtrl.destinyPath.search("addmedia") != -1 && false){
-      this.router.navigateByUrl("");
+  redirect(name: String) {
+    var currentPath = this.location.path();
+    if (currentPath.search("addmedia") != -1) {
+      this.router.navigateByUrl(`addmedia/${name}/config`);
     }
-    else if(this.routeCtrl.destinyPath.search("seemedia") != -1 && false){
-      this.router.navigateByUrl("");
+    else if (currentPath.search("seemedia") != -1) {
+      this.router.navigateByUrl("/seemedia/config");
     }
-    else{
-      this.dialog.open( RedirectErrorDialogComponent, {
+    else {
+      this.dialog.open(RedirectErrorDialogComponent, {
         width: '500px',
         height: '250px',
-        
+
       });
       this.Header = "Selecione uma das mídias abaixo: "
     }

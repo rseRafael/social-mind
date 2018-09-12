@@ -2,21 +2,25 @@
 
   <div class="addmedia-form">
 
-    <div class="addmedia-image">
+    <div id="addmedia-image">
 
     </div>
-    <form class="addmedia-form" style="font-size: 20px; width: 350px;">
+    <form enctype="multipart/form-data"class="addmedia-form" style="font-size: 20px; width: 350px;" id="media-form" name="form-media" method="GET">
       <mat-form-field>
-        <input matInput placeholder="Link da rede:" value="">
+        <input matInput placeholder="Link da rede:" value="" name="link-name">
       </mat-form-field>
       <mat-form-field >
-        <input matInput type="datetime-local" placeholder="Data de início:" value="2012-12-12T08:30">
+        <input matInput type="datetime-local" placeholder="Data de início:" value={{today}} name="start-date">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="date" placeholder="Data do fim:" value="2012-12-12">
+        <input matInput type="datetime-local" placeholder="Data do fim:" value={{tomorrow}} name="end-date">
       </mat-form-field>
+      <input type="submit" value="submit"/>
     </form>
 
+    <div (click)="testForm()">
+      <p>click</p>
+    </div>
   </div>
 
 </div>

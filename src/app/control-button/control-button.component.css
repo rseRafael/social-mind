@@ -1,0 +1,16 @@
+#ctrl-button-div{
+    background-color:rgba(51, 51, 51, 1);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-top-right-radius: 35%;
+    border-bottom-right-radius: 35%;
+}
+.ctrl-white-block{
+    width: 65%;
+    height: 10%;
+    background-color: white;
+}

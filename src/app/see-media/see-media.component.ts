@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-see-media',
   templateUrl: './see-media.component.html',
@@ -10,12 +10,13 @@ export class SeeMediaComponent implements OnInit {
   public locationINFO: Array<Object> = [];
   public routeINFO: Array<Object> = [];
 
-  constructor( private location: Location) {
+  constructor( private location: Location, private actRoute: ActivatedRoute) {
 
   }
 
   ngOnInit() {
     this.dissectObj(this.location, this.locationINFO);
+    this.dissectObj(this.actRoute, this.routeINFO);
     //this.dissectObj(this.route, this.routeINFO);
     console.log("PATH:");
     console.log(this.location.path());

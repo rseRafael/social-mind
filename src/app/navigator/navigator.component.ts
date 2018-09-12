@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouteControllerService } from '../route-controler.service';
-/*
+
 import { ActivatedRoute } from '@angular/router';
+/*
 Location's go function not working.
 */
 import { Location } from '@angular/common';
@@ -10,7 +11,7 @@ import { Location } from '@angular/common';
 
 
 @Component({
-  selector: 'navigator',
+  selector: 'side-nav',
   templateUrl: './navigator.component.html',
   styleUrls: ['./navigator.component.css']
 })
@@ -23,44 +24,46 @@ export class NavigatorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateSelected();
   }
-
-  goToSeeMedia() {
-    this.router.navigateByUrl("/seemedia/options")
-    .then((value) => {
-      if (value) {
-        this.path = '/seemedia';
-        this.routeCtrl.destinyPath = '/seemedia/content';
-      }
-      else {
-      }
-    });
-  }
-
-  goToAddMedia() {
-    this.router.navigateByUrl("/addmedia/options")
-    .then((value) => {
-      if (value) {
-        this.path = '/addmedia';
-        this.routeCtrl.destinyPath = '/addmedia/';
-      }
-      else {
-      }
-    });
-  }
-
-  goBack() {
-    this.location.back();
-    var path = this.location.path();
-    if (path.search("seemedia") != -1) {
+  updateSelected() {
+    var currentPath = this.location.path();
+    if (currentPath.search("seemedia") != -1) {
       this.path = '/seemedia';
     }
-    else if (path.search("addmedia")) {
+    else if (currentPath.search("addmedia") != -1) {
       this.path = '/addmedia';
     }
     else {
       this.path = null;
     }
+    console.log('selected updated');
+  }
+  goToSeeMedia() {
+    this.router.navigateByUrl("/seemedia/options")
+      .then((value) => {
+        if (value) {
+          this.updateSelected();
+        }
+        else {
+        }
+      });
+  }
+
+  goToAddMedia() {
+    this.router.navigateByUrl("/addmedia/options")
+      .then((value) => {
+        if (value) {
+          this.updateSelected();
+        }
+        else {
+        }
+      });
+  }
+
+  goBack() {
+    this.location.back();
+    this.updateSelected();
   }
 
 }

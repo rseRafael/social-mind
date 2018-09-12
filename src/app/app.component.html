@@ -1,24 +1,26 @@
 <div id="app-main-div"> 
-    <navigator id="app-nav-div"
-                [class.app-anim-nav-open]="open == true && shouldAnimate == true" 
-                [class.app-anim-nav-close]="open == false && shouldAnimate == true" 
-                [class.app-nav-open]="open == true && animated == true"
-                [class.app-nav-close]="open == false && animated == true">
-    </navigator>
+    <side-nav id="app-nav-div"
+            [class.app-anim-nav-open]="opened == true && animated === false" 
+            [class.app-anim-nav-close]="opened == false && animated === false" 
+            [class.app-nav-open]="opened === true && animated === true"
+            [class.app-nav-close]="opened === false && animated === true">
+    </side-nav>
+    <ctrl-btn id="app-button-div" (click)="animateNow()"
+            [class.app-anim-btn-open]="opened == true && animated === false" 
+            [class.app-anim-btn-close]="opened == false && animated === false" 
+            [class.app-btn-open]="opened === true && animated === true"
+            [class.app-btn-close]="opened === false && animated === true">
+    </ctrl-btn>
     <div id="app-content-div"
          [class.app-anim-content-close]="open == true && shouldAnimate == true" 
          [class.app-anim-content-open]="open == false && shouldAnimate == true" 
          [class.app-content-close]="open == true && animated == true"
          [class.app-content-open]="open == false && animated == true">
-        <div class="app-column app-one">
-            <div id="app-button-div" (click)="btnClick()">
-                <div class="app-white-block"></div>
-                <div class="app-white-block"></div>
-                <div class="app-white-block"></div>
-            </div>
-        </div>
-        <div class="app-column app-two" id="app-outlet">
+        <div class="app-column"></div>
+        <div class="app-column-main" id="app-outlet">
             <router-outlet></router-outlet>
+        </div>
+        <div class="app-column">
         </div>
     </div>
 </div>

@@ -6,8 +6,14 @@ import { AddMediaComponent } from './add-media/add-media.component';
 import { MediaOptionsComponent } from './media-options/media-options.component';
 
 const routes: Routes = [
-  { path: 'seemedia', component: SeeMediaComponent },
-  { path: 'addmedia', component: AddMediaComponent },
+  { path: 'seemedia/facebook/content', component: SeeMediaComponent },
+  { path: 'seemedia/youtube/content', component: SeeMediaComponent },
+  { path: 'seemedia/twitter/content', component: SeeMediaComponent },
+  { path: 'seemedia/instagram/content', component: SeeMediaComponent },
+  { path: 'addmedia/facebook/config', component: AddMediaComponent },
+  { path: 'addmedia/youtube/config', component: AddMediaComponent },
+  { path: 'addmedia/twitter/config', component: AddMediaComponent },
+  { path: 'addmedia/instagram/config', component: AddMediaComponent },
   { path: 'addmedia/options', component: MediaOptionsComponent},
   { path: 'seemedia/options', component: MediaOptionsComponent},
 ];

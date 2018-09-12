@@ -1,17 +1,17 @@
 <div class="media-main-div" id="media-main-content">
 
   <div class="media-options-menu">
-    <h1>{{Header}}</h1>
-    <div *ngFor="let media of medias" (click)="redirect()" class="media-row media-button" id={{media.divId}}>
+    <h2>{{Header}}</h2>
+    <div *ngFor="let media of medias" (click)="redirect(media.name)" class="media-row media-button" id={{media.divId}}>
       <div class="media-col-2">
         <i class={{media.class}} id={{media.iconDiv}}></i>
       </div>
-     <div class="media-col-10">
+      <div class="media-col-10">
         <p class="media-paragraph">{{media.name}}</p>
-     </div>
-      
+      </div>
+
     </div>
 
-  </div>    
-  
+  </div>
+
 </div>

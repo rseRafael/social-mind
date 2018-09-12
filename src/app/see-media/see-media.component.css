@@ -6,6 +6,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+    background-color: white;
 }
 
 .nav-div{
@@ -22,6 +23,6 @@
     align-items: flex-start;
     overflow: scroll;
     height: 100%;
-    width: 90%;
+    width: 100%;
     padding: 2%;
 }

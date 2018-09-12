@@ -4,9 +4,8 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
+    background-color: rgba(51, 51, 51, 1);
 }
-
-
 
 .links{
     padding: 0%;
@@ -21,13 +20,16 @@
     align-items: center;
     cursor: pointer;
 }
+
 .gpe-G{
     color: green;
 }
-.empty{
-    height: 80%;
-    justify-content: flex-end;
+
+.final{
+    position: absolute;
+    top: 97%;
     font-family: sans-serif;
+    color: rgba(156, 156, 156, 1);
 }
 
 .selected{

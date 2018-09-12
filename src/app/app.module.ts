@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RedirectErrorDialogComponent } from './redirect-error-dialog/redirect-error-dialog.component';
+import { ControlButtonComponent } from './control-button/control-button.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RedirectErrorDialogComponent } from './redirect-error-dialog/redirect-e
     AddMediaComponent,
     MediaOptionsComponent,
     NavigatorComponent,
-    RedirectErrorDialogComponent
+    RedirectErrorDialogComponent,
+    ControlButtonComponent
   ],
   imports: [
     BrowserModule,
