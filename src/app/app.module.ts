@@ -11,7 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import { RedirectErrorDialogComponent } from './redirect-error-dialog/redirect-error-dialog.component';
 import { ControlButtonComponent } from './control-button/control-button.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { ControlButtonComponent } from './control-button/control-button.componen
     BrowserAnimationsModule,
     MatInputModule,
     MatDialogModule,
+    FormsModule,
 
   ],
   providers: [],

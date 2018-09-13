@@ -2,25 +2,21 @@
 
   <div class="addmedia-form">
 
-    <div id="addmedia-image">
+    <div id="addmedia-image"></div>
 
-    </div>
-    <form enctype="multipart/form-data"class="addmedia-form" style="font-size: 20px; width: 350px;" id="media-form" name="form-media" method="GET">
+    <form  (ngSubmit)="sendForm($event, mediaForm)" #mediaForm="ngForm" enctype="multipart/form-data" class="addmedia-form" style="font-size: 20px; width: 350px;" id="media-form" name="form-media" method="POST">
       <mat-form-field>
-        <input matInput placeholder="Link da rede:" value="" name="link-name">
+        <input matInput placeholder="Link da rede:" value="" name="link-name" id="media-link">
       </mat-form-field>
       <mat-form-field >
-        <input matInput type="datetime-local" placeholder="Data de início:" value={{today}} name="start-date">
+        <input matInput type="datetime-local" placeholder="Data de início:" value={{today}} name="start-date" id="start-date">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="datetime-local" placeholder="Data do fim:" value={{tomorrow}} name="end-date">
+        <input matInput type="datetime-local" placeholder="Data do fim:" value={{tomorrow}} name="end-date" id="end-date">
       </mat-form-field>
       <input type="submit" value="submit"/>
     </form>
 
-    <div (click)="testForm()">
-      <p>click</p>
-    </div>
   </div>
 
 </div>
