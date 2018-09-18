@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+
+
 
 class MonitorableMedia {
   mediaLink: String;
@@ -26,7 +30,7 @@ export class AddMediaComponent implements OnInit {
   });
   public today: String = "1999-01-01T23:59";
   public tomorrow: String = "1999-01-02T23:59";
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.resizeComponent();
@@ -61,10 +65,36 @@ export class AddMediaComponent implements OnInit {
     var startDate: any = document.getElementById("start-date");
     var endDate: any = document.getElementById("end-date");
     if(this.verifyMediaLink(mediaLink)){
-      var data: MonitorableMedia = new MonitorableMedia(mediaLink.value, startDate.value, endDate.value);
-      var json = JSON.stringify(data);
-      console.log(json);
+      var mediaData: any= new MonitorableMedia(mediaLink.value, startDate.value, endDate.value);
+      var url = "http://127.0.0.1:8000/media/add/";
+      var data = new FormData();
+      data.append("mediaData", JSON.stringify(mediaData));
+      fetch(url, {
+        method: "POST", 
+        mode: "cors",
+        headers: new Headers(),
+        body: data,
+      })
+      .then(
+        res=> res.json()
+      )
+      .then(res =>{
+        console.log("second response: ");
+        console.log(res) ;
+      })
+      .catch(
+        error=>{
+        }
+      )
     }
+  }
+
+  httpRequestOne(){
+
+  }
+
+  httpRequestTwo(){
+
   }
 
   verifyMediaLink(link:String): Boolean{
