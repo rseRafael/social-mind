@@ -1,0 +1,82 @@
+.settings-main-div{
+    display: flex; 
+    flex-direction: row; 
+}
+.open-settings{
+    animation-name: open-settings-anim;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+.close-settings{
+    animation-name: close-settings-anim;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+.opened-settings{
+    margin-left: 20px;
+    color: lightgrey;
+}
+
+.closed-settings{
+    margin-left: 0px;
+    color: lightgrey;
+}
+
+@keyframes open-settings-anim{
+    from{
+       margin-left: 0px;
+    }
+    to{
+       margin-left: 20px;
+    }
+}
+
+@keyframes close-settings-anim{
+    from{
+       margin-left: 20px;
+    }
+    to{
+       margin-left: 0px;
+    }
+}
+
+
+.open-dlt{
+    animation-name: open-dlt-anim;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+.close-dlt{
+    animation-name: close-dlt-anim;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+.opened-dlt{
+    font-size: 20px;
+    color: red;
+}
+
+.closed-dlt{
+    font-size: 0px;
+    color: red;
+}
+
+@keyframes open-dlt-anim{
+    from{
+        font-size: 0px;
+    }
+    to{
+        font-size: 20px;
+    }
+}
+
+@keyframes close-dlt-anim{
+    from{
+        font-size: 20px;
+    }
+    to{
+        font-size: 0px;
+    }
+}

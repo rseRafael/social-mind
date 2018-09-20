@@ -2,20 +2,48 @@
 
   <div class="addmedia-form">
 
-    <div id="addmedia-image"></div>
+    <div id="addmedia-image">
 
-    <form  (ngSubmit)="sendForm($event, mediaForm)" #mediaForm="ngForm" enctype="multipart/form-data" class="addmedia-form" style="font-size: 20px; width: 350px;" id="media-form" name="form-media" method="POST">
-      <mat-form-field>
-        <input matInput placeholder="Link da rede:" value="" name="link-name" id="media-link">
-      </mat-form-field>
-      <mat-form-field >
-        <input matInput type="datetime-local" placeholder="Data de início:" value={{today}} name="start-date" id="start-date">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="datetime-local" placeholder="Data do fim:" value={{tomorrow}} name="end-date" id="end-date">
-      </mat-form-field>
-      <input type="submit" value="submit"/>
-    </form>
+    </div>
+    <div id="addmedia-form-div">
+      <form  #mediaForm="ngForm" enctype="multipart/form-data" class="addmedia-form" style="font-size: 20px; width: 350px;" id="media-form" name="form-media" method="POST">
+
+        <div class="icon-div">
+          <button class="icon-btn">
+           <i class="fas fa-plus addmedia-add-icon" (click)="addLink()"></i>
+          </button>
+        </div>
+
+        <mat-form-field>
+          <input matInput placeholder="URL:" value="" name="link-name" id="media-link" [class.disabled]="hassent == true" disabled={{hassent}}>
+        </mat-form-field>
+
+        <mat-form-field *ngFor="let link of links">
+          <input matInput placeholder="linkTeste:" value="" name="link-name2"  [class.disabled]="hassent == true" disabled={{hassent}}>
+        </mat-form-field>
+
+        <settings-btn></settings-btn>
+       
+        <mat-form-field >
+          <input matInput type="datetime-local" placeholder="Data de início:" value={{today}} name="start-date" id="start-date" [class.disabled]="hassent == true" disabled={{hassent}}>
+        </mat-form-field>
+
+        <mat-form-field> 
+          <input matInput type="datetime-local" placeholder="Data do fim:" value={{tomorrow}} name="end-date" id="end-date" [class.disabled]="hassent == true" disabled={{hassent}}>
+        </mat-form-field>
+
+        <input type="submit" value="submit"  id="submit-btn" [class.disabled]="hassent == true" (click)="sendForm($event)" />
+
+      </form>
+      <mat-spinner mode="indeterminate" *ngIf="hassent == true" diameter=60></mat-spinner>
+    </div>
+
+    <div *ngIf="received === true" style="width: 100%; height: 250px; overflow: scroll;">
+      <p >
+        {{message}}
+      </p>
+   </div>
+ 
 
   </div>
 

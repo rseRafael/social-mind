@@ -1,0 +1,25 @@
+<div class="settings-main-div">
+
+  <div 
+      [class.open-dlt]="open == true && animated == false"
+      [class.opened-dlt]="open == true && animated == true"
+      [class.close-dlt]="open == false && animated == false"
+      [class.closed-dlt]="open == false && animated == true">
+
+    <i  class="fas fa-trash-alt">
+    </i>
+
+  </div>
+  
+  <div (click)="setOpen()"
+       [class.open-settings]="open == true && animated == false"
+       [class.opened-settings]="open == true && animated == true"
+       [class.close-settings]="open == false && animated == false"
+       [class.closed-settings]="open == false && animated == true">
+
+
+    <i class="fas fa-ellipsis-h" style="color: lightgrey; cursor: pointer"></i>
+
+  </div>
+
+</div>

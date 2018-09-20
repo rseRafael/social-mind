@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, timeInterval } from 'rxjs/operators';
 
 
 
@@ -30,6 +30,10 @@ export class AddMediaComponent implements OnInit {
   });
   public today: String = "1999-01-01T23:59";
   public tomorrow: String = "1999-01-02T23:59";
+  public message: String = " empty ";
+  public received: Boolean = false;
+  public hassent: Boolean  = false;
+  public links: Array<String> = [];
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -81,11 +85,21 @@ export class AddMediaComponent implements OnInit {
       .then(res =>{
         console.log("second response: ");
         console.log(res) ;
+        this.received = true;
+        this.message = res['msg'];
+        setInterval(
+          ()=>{
+            this.received = false;
+            this.message  = " empty "
+          }, 
+          30000
+        );
       })
       .catch(
         error=>{
         }
       )
+      this.hassent = true;
     }
   }
 
@@ -105,5 +119,13 @@ export class AddMediaComponent implements OnInit {
     else{
       return false;
     }
+  }
+
+  verifyDates(startdate: Date , enddate: Date ){
+    
+  }
+
+  addLink(){
+    this.links.push(null);
   }
 }

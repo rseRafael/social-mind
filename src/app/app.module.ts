@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from   '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -13,6 +13,9 @@ import { RedirectErrorDialogComponent } from './redirect-error-dialog/redirect-e
 import { ControlButtonComponent } from './control-button/control-button.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SettingsBtnComponent } from './settings-btn/settings-btn.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     MediaOptionsComponent,
     NavigatorComponent,
     RedirectErrorDialogComponent,
-    ControlButtonComponent
+    ControlButtonComponent,
+    SettingsBtnComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     FormsModule,
     HttpClientModule,
+    MatProgressSpinnerModule, 
 
   ],
   providers: [],

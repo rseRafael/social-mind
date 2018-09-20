@@ -4,10 +4,87 @@
     justify-content: center;
     background-color: white;
     align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .addmedia-form{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    height: 100%;
+    width: 100%;
+}
+
+.disabled{
+    background-color: lightgrey;
+    opacity: 0.5;
+    cursor: auto;
+}
+
+#addmedia-form-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+
+#addmedia-image{
+    width: 100%;
+    height: 15%;
+    border:  1px lightblue dashed;
+}
+
+
+.addmedia-add-icon{
+    font-size: 30px;
+    color: green;
+    cursor: pointer;
+}
+
+
+.icon-div{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.icon-btn{
+    background-color: white;
+    border-radius: 100%;
+}
+
+.open{
+    width: 0px;
+    animation-name: open-anim;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+.icon{
+    animation-name: icon-anim;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes open-anim{
+    from{
+        width: 0px;
+    }
+    to{
+        width: 100px;
+    }
+}
+
+@keyframes icon-anim{
+    from{
+        font-size: 0px;
+    }
+    to{
+        font-size: 25px;
+    }
 }

@@ -16,7 +16,8 @@
          [class.app-anim-content-open]="open == false && shouldAnimate == true" 
          [class.app-content-close]="open == true && animated == true"
          [class.app-content-open]="open == false && animated == true">
-        <div class="app-column"></div>
+        <div class="app-column">
+        </div>
         <div class="app-column-main" id="app-outlet">
             <router-outlet></router-outlet>
         </div>
