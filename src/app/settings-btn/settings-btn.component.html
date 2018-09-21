@@ -1,6 +1,8 @@
 <div class="settings-main-div">
 
-  <div 
+  <div
+    (click)="deleteElem()"
+    [class.null-dlt]="open == null"
     [class.open-dlt]="open == true"
     [class.close-dlt]="open == false">
 
@@ -9,11 +11,12 @@
   </div>
   
   <div (click)="setOpen()"
+       [class.null-settings]="open == null"
        [class.open-settings]="open == true"
        [class.close-settings]="open == false">
 
 
-    <i class="fas fa-ellipsis-h" style="color: lightgrey; cursor: pointer"></i>
+    <i class="fas fa-ellipsis-h"></i>
 
   </div>
 

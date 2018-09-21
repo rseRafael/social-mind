@@ -8,31 +8,42 @@
     animation-iteration-count: 1;
     margin-left: 20px;
     color: lightgrey;
+    cursor: pointer;
 }
 .close-settings{
     animation-name: close-settings-anim;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
     margin-left: 0px;
-    color: lightgrey;
+    color: grey;
+    cursor: pointer;
 }
 
+.null-settings{
+    margin-left: 0px;
+    color: grey;
+    cursor: pointer;
+}
 
 @keyframes open-settings-anim{
     from{
        margin-left: 0px;
+       color: grey;
     }
     to{
        margin-left: 20px;
+       color: lightgrey;
     }
 }
 
 @keyframes close-settings-anim{
     from{
        margin-left: 20px;
+       color: lightgrey;
     }
     to{
        margin-left: 0px;
+       color: grey;
     }
 }
 
@@ -48,6 +59,7 @@
     animation-iteration-count: 1;
     font-size: 20px;
     color: red;
+    cursor: pointer;
 }
 
 .close-dlt{
@@ -56,6 +68,12 @@
     animation-iteration-count: 1;
     font-size: 0px;
     color: red; 
+    cursor: pointer;
+}
+.null-dlt{
+    font-size: 0px;
+    color: red; 
+    cursor: pointer;
 }
 
 @keyframes open-dlt-anim{

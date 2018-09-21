@@ -2,27 +2,31 @@
 
   <div class="addmedia-form">
 
-    <div id="addmedia-image">
-
-    </div>
+    <div id="addmedia-image"> </div>
+  
     <div id="addmedia-form-div">
       <form  #mediaForm="ngForm" enctype="multipart/form-data" class="addmedia-form" style="font-size: 20px; width: 350px;" id="media-form" name="form-media" method="POST">
 
         <div class="icon-div">
           <button class="icon-btn">
-           <i class="fas fa-plus addmedia-add-icon" (click)="addLink()"></i>
+            <i class="fas fa-plus addmedia-add-icon" (click)="addLink()"></i>
           </button>
         </div>
 
         <mat-form-field>
-          <input matInput placeholder="URL:" value="" name="link-name" id="media-link" [class.disabled]="hassent == true" disabled={{hassent}}>
+          <input matInput placeholder="endereço de mídia:" value="@teste" id="media-link" [class.disabled]="hassent == true" disabled={{hassent}}>
         </mat-form-field>
 
-        <mat-form-field *ngFor="let link of links">
-          <input matInput placeholder="linkTeste:" value="" name="link-name2"  [class.disabled]="hassent == true" disabled={{hassent}}>
-        </mat-form-field>
 
-        <settings-btn></settings-btn>
+        <div *ngFor="let link of links" id={{link.divId}} style="width: 100%;" >
+          <settings-btn  [elemId]="returndivId(link)"></settings-btn>
+          <mat-form-field style="width: 100%;">
+            <input matInput placeholder="endereço da mídia:" value="@teste" [class.disabled]="hassent == true" disabled={{hassent}} id={{link.linkId}}>
+          </mat-form-field>
+        </div>
+        
+
+        
        
         <mat-form-field >
           <input matInput type="datetime-local" placeholder="Data de início:" value={{today}} name="start-date" id="start-date" [class.disabled]="hassent == true" disabled={{hassent}}>

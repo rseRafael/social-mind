@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'settings-btn',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsBtnComponent implements OnInit {
 
-  public open: Boolean = false;
-  public animated: Boolean = true;
+  public open: boolean = null;
+  @Input() elemId: any = null;
   constructor() {
 
    }
@@ -18,14 +19,16 @@ export class SettingsBtnComponent implements OnInit {
   }
 
   setOpen(){
-    this.open = !this.open;
-    this.animated = false;
-    setInterval(
-      ()=>{
-        this.animated = true;
-      },
-      1000
-    )
+    if(this.open === null){
+      this.open = true;
+    }
+    else{
+      this.open = !this.open;
+    }
   }
 
+  deleteElem(){
+    var elem = document.getElementById(this.elemId);
+    elem.style.display = "none";
+  }
 }
