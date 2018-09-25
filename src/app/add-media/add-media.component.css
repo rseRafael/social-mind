@@ -1,4 +1,4 @@
-.component-div{
+.addmedia-component-div{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,8 +12,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    overflow: scroll;
 }
 
 .disabled{
@@ -23,23 +24,19 @@
 }
 
 #addmedia-form-div{
-    width: 100%;
+    width: 80%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: scroll;
-}
-
-#addmedia-image{
-    width: 100%;
-    height: 15%;
-    border:  1px lightblue dashed;
+    border: 2px dashed chocolate;
+    padding: 1px;
 }
 
 
 .addmedia-add-icon{
-    font-size: 30px;
+    font-size: 20px;
     color: green;
     cursor: pointer;
 }

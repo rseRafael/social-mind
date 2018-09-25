@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlButtonComponent implements OnInit {
 
+  public opened = null;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  animate(){
+    if(this.opened === null){
+      this.opened = false;
+    }
+    else{
+      this.opened = !this.opened;
+    }
+   
+  }
 }

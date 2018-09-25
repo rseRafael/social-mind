@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RoutesRecognized } from '@angular/router';
 import { RouteControllerService } from '../route-controler.service';
 
 import { ActivatedRoute } from '@angular/router';
@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 Location's go function not working.
 */
 import { Location } from '@angular/common';
+import { filter, pairwise } from 'rxjs/operators';
+
 
 
 
@@ -28,6 +30,7 @@ export class NavigatorComponent implements OnInit {
   }
   updateSelected() {
     var currentPath = this.location.path();
+    console.log(`currentPath: ${currentPath}`);
     if (currentPath.search("seemedia") != -1) {
       this.path = '/seemedia';
     }
@@ -37,7 +40,7 @@ export class NavigatorComponent implements OnInit {
     else {
       this.path = null;
     }
-    console.log('selected updated');
+    console.log(`now: ${this.location.path()}`)
   }
   goToSeeMedia() {
     this.router.navigateByUrl("/seemedia/options")
@@ -62,8 +65,9 @@ export class NavigatorComponent implements OnInit {
   }
 
   goBack() {
-    this.location.back();
-    this.updateSelected();
+
+
   }
+
 
 }

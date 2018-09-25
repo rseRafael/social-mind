@@ -6,11 +6,90 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    border-top-right-radius: 35%;
-    border-bottom-right-radius: 35%;
 }
 .ctrl-white-block{
     width: 65%;
     height: 10%;
     background-color: white;
+    position: relative;
+}
+
+.closable2{
+    animation-name: animate2;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    transform: rotate(50deg);
+    bottom: 33%;
+}
+.openable2{
+    animation-name: animate2;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    transform: rotate(0deg);
+    bottom: 0%;
+}
+
+@keyframes animate2{
+    from{
+        transform: rotate(0deg);
+        bottom: 0%;
+    }
+    to{
+        transform: rotate(50deg);
+        bottom: 33%;
+    }
+}
+
+.closable1{
+    animation-name: animate1;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    transform: rotate(-50deg);
+    top: 33%;
+}
+
+.openable1{
+    animation-name: animate1;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    transform: rotate(0deg);
+    top: 0%;
+}
+
+@keyframes animate1{
+    from{
+        transform: rotate(0deg);
+        top: 0%; 
+    }
+    to{
+        transform: rotate(-50deg);
+        top: 33%;
+    }
+}
+
+.disappear{
+    animation-name: animate3;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    opacity: 0;
+}
+.appear{
+    animation-name: animate3;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+    opacity: 1;
+}
+@keyframes animate3{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
 }

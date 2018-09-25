@@ -1,54 +1,63 @@
-<div id="addmedia-component" class="component-div">
+<div 
+  id="addmedia-component" 
+  class="addmedia-component-div">
 
-  <div class="addmedia-form">
+    <div 
+      class="addmedia-form">
 
-    <div id="addmedia-image"> </div>
-  
-    <div id="addmedia-form-div">
-      <form  #mediaForm="ngForm" enctype="multipart/form-data" class="addmedia-form" style="font-size: 20px; width: 350px;" id="media-form" name="form-media" method="POST">
+        <div 
+          id="addmedia-form-div">
 
-        <div class="icon-div">
-          <button class="icon-btn">
-            <i class="fas fa-plus addmedia-add-icon" (click)="addLink()"></i>
-          </button>
+            <form  
+              #mediaForm="ngForm" 
+              enctype="multipart/form-data" 
+              class="addmedia-form"  
+              id="media-form" 
+              name="form-media" 
+              method="POST">
+                <media-input 
+                  [title]="'Media'" 
+                  [inputType]="'text'" 
+                  [iconClass]="'fas fa-link'">
+              </media-input>
+
+                <media-input 
+                  [title]="'Data de início'" 
+                  [inputType]="'datetime-local'" 
+                  [iconClass]="'fas fa-calendar-alt'">
+                </media-input>
+
+                <media-input 
+                  [title]="'Data de Fim'" 
+                  [inputType]="'datetime-local'" 
+                  [iconClass]="'fas fa-calendar-alt'">
+                </media-input>
+
+                <media-input 
+                  [title]="'Send'" 
+                  [inputType]="'submit'"  
+                  [iconClass]="'fas fa-location-arrow'">
+                </media-input>
+
+                <input 
+                  type="submit" 
+                  value="submit"  
+                  id="submit-btn" 
+                  [class.disabled]="hassent == true" 
+                  (click)="sendForm($event)" />
+
+            </form>
         </div>
 
-        <mat-form-field>
-          <input matInput placeholder="endereço de mídia:" value="@teste" id="media-link" [class.disabled]="hassent == true" disabled={{hassent}}>
-        </mat-form-field>
+        <br/>
+      
+        <div *ngIf="received === true" style="width: 100%; height: 250px; overflow: scroll;">
+          <p >
+            {{message}}
+          </p>
+      </div>
+    
 
-
-        <div *ngFor="let link of links" id={{link.divId}} style="width: 100%;" >
-          <settings-btn  [elemId]="returndivId(link)"></settings-btn>
-          <mat-form-field style="width: 100%;">
-            <input matInput placeholder="endereço da mídia:" value="@teste" [class.disabled]="hassent == true" disabled={{hassent}} id={{link.linkId}}>
-          </mat-form-field>
-        </div>
-        
-
-        
-       
-        <mat-form-field >
-          <input matInput type="datetime-local" placeholder="Data de início:" value={{today}} name="start-date" id="start-date" [class.disabled]="hassent == true" disabled={{hassent}}>
-        </mat-form-field>
-
-        <mat-form-field> 
-          <input matInput type="datetime-local" placeholder="Data do fim:" value={{tomorrow}} name="end-date" id="end-date" [class.disabled]="hassent == true" disabled={{hassent}}>
-        </mat-form-field>
-
-        <input type="submit" value="submit"  id="submit-btn" [class.disabled]="hassent == true" (click)="sendForm($event)" />
-
-      </form>
-      <mat-spinner mode="indeterminate" *ngIf="hassent == true" diameter=60></mat-spinner>
     </div>
-
-    <div *ngIf="received === true" style="width: 100%; height: 250px; overflow: scroll;">
-      <p >
-        {{message}}
-      </p>
-   </div>
- 
-
-  </div>
 
 </div>

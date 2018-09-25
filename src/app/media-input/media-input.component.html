@@ -1,0 +1,39 @@
+<div class="no-space media-input-main" *ngIf="inputType !== 'submit'">
+
+  <div class="no-space media-input-title-div">
+
+    <i 
+      class={{iconClass}}
+      [class.style-icon]="true === true"
+      [class.no-space]="true === true">
+    </i>
+
+    <p 
+      class="no-space style-font">
+      {{title}}
+    </p>
+
+  </div>
+
+  <div class="no-space media-input-division-container">
+    <div class="no-space media-input-division">
+    </div>
+  </div>
+  
+  <div class="no-space media-input-input-container">
+      <input class="no-space style-font media-input-style" type={{inputType}}/>
+  </div>
+
+</div>
+<div class="no-space media-input-submit-main" *ngIf="inputType === 'submit'">
+  <input 
+    class="no-space style-font media-input-submit-style" 
+    type={{inputType}} 
+    value={{title}}/>
+  <i 
+    class={{iconClass}}
+    [class.style-icon]="true === true"
+    [class.no-space]="true === true">
+  </i>
+</div>
+  

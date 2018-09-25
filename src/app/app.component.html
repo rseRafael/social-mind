@@ -1,15 +1,15 @@
 <div id="app-main-div"> 
-    <side-nav id="app-nav-div"
-            [class.app-anim-nav-open]="opened == true && animated === false" 
-            [class.app-anim-nav-close]="opened == false && animated === false" 
-            [class.app-nav-open]="opened === true && animated === true"
-            [class.app-nav-close]="opened === false && animated === true">
+    <side-nav 
+        id="app-nav-div"
+        [class.app-nav-open]="opened === true" 
+        [class.app-nav-close]="opened === false" 
+        [class.app-nav-closed]="opened === null">
     </side-nav>
-    <ctrl-btn id="app-button-div" (click)="animateNow()"
-            [class.app-anim-btn-open]="opened == true && animated === false" 
-            [class.app-anim-btn-close]="opened == false && animated === false" 
-            [class.app-btn-open]="opened === true && animated === true"
-            [class.app-btn-close]="opened === false && animated === true">
+    <ctrl-btn 
+        id="app-button-div" (click)="changeOpened()"
+        [class.app-btn-open]="opened === true" 
+        [class.app-btn-close]="opened === false" 
+        [class.app-btn-closed]="opened === null">
     </ctrl-btn>
     <div id="app-content-div"
          [class.app-anim-content-close]="open == true && shouldAnimate == true" 

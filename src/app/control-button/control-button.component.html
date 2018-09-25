@@ -1,5 +1,17 @@
-<div id="ctrl-button-div">
-  <div class="ctrl-white-block"></div>
-  <div class="ctrl-white-block"></div>
-  <div class="ctrl-white-block"></div>
+<div id="ctrl-button-div"(click)="animate()">
+  <div 
+    class="ctrl-white-block" 
+    [class.closable1]="opened === false"
+    [class.openable1]="opened === true">
+  </div>
+  <div 
+    class="ctrl-white-block" 
+    [class.disappear]="opened === false"
+    [class.appear]="opened === true">
+  </div>
+  <div 
+    class="ctrl-white-block" 
+    [class.closable2]="opened === false"
+    [class.openable2]="opened === true">
+  </div>
 </div>

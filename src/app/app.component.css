@@ -11,28 +11,7 @@
     */  
 }
 
-#app-nav-div{
-    height: 100%;
-    width: 25%;
-    position: fixed;
-    padding: 0%;
-    margin: 0%;
-}
 
-#app-button-div{
-    position: fixed;
-    width: 3%;
-    height: 5%;
-    padding: 0%;
-    margin: 0%;
-    border-top-right-radius: 50%;
-    /*
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    */
-}
 
 #app-content-div{
     display: flex;
@@ -56,81 +35,94 @@
     width: 20%;  
 }
 
-/* Animações do navegador */
-.app-nav-open{
-    left: 0%;
-}
-.app-anim-nav-open{
-    animation-name: open-nav;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-}
-@keyframes open-nav{
-    from{
-        left: -25%;
-    }
-    to{
-        left: 0%;
-    }
-}
-.app-nav-close{
-    left: -25%;
-}
-.app-anim-nav-close{
-    animation-name: close-nav;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
+
+
+#app-button-div{
+    position: fixed;
+    width: 33px;
+    height: 33px;
+    margin-left: 1px;
 }
 
-@keyframes close-nav{
-    from{
-        left: 0%;
-        /*display: inline-block;*/
-    }
-    to{
-        left: -25%;
-        /*display: none;*/
-    }
-}
-/* ---------------- */
-
-/* Animações do botão de controle */
-.app-btn-open{
-    left: 25%;
+#app-nav-div{
+    height: 100%;
+    position: fixed;
+    padding: 0%;
+    margin: 0%;
 }
 
-.app-anim-btn-open{
-    animation-name: open-btn;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-}
-@keyframes open-btn{
-    from{
-        left: 0%;
+@media only screen and (min-width: 500px){
+    /* Classes do Navegador */
+    #app-nav-div{
+        width: 450px;
     }
-    to{
-        left: 25%;
+    .app-nav-open{
+        animation-name: open-nav;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        left: 0px;
     }
+    @keyframes open-nav{
+        from{
+            left: -450px;
+        }
+        to{
+            left: 0px;
+        }
+    }
+    .app-nav-close{
+        animation-name: close-nav;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        left: -450px;
+    }
+    @keyframes close-nav{
+        from{
+            left: 0px;
+        }
+        to{
+            left: -450px;
+        }
+    }
+    .app-nav-closed{
+        left: -450px;
+    }
+    /* ---------------- */
+
+    /* Classes do botão de controle */
+    .app-btn-open{
+        animation-name: open-btn;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        left: 450px;
+    }
+    @keyframes open-btn{
+        from{
+            left: 0px;
+        }
+        to{
+            left: 450px;
+        }
+    }
+    .app-btn-close{
+        animation-name: close-btn;
+        animation-duration: 0.5s;
+        animation-iteration-count: 1;
+        left: 0px;
+    }
+    @keyframes close-btn{
+        from{
+            left: 450px;
+        }
+        to{
+            left: 0px;
+        }
+    }
+    /*----------------*/
+
 }
 
-.app-btn-close{
-    left: 0%;
-}
-.app-anim-btn-close{
-    animation-name: close-btn;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-}
 
-@keyframes close-btn{
-    from{
-        left: 25%;
-    }
-    to{
-        left: 0%;
-    }
-}
-/*----------------*/
 
 .app-content-open{
     left: 0%;

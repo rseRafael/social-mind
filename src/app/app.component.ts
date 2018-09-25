@@ -8,9 +8,7 @@ import { setCurrentInjector } from '@angular/core/src/di/injector';
 })
 export class AppComponent implements OnInit {
 
-  public title = 'app';
-  public opened = false;
-  public animated = true;
+  public opened = null;
 
   constructor() {
 
@@ -18,19 +16,15 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
-  animateNow() {
-   console.log("-1-");
-   this.animated = false;
-   this.opened = !this.opened;
-   console.log("-2-");
-   setTimeout(
-      ()=>{
-        this.animated= true;
-        console.log("-3-");
-        //this.resizeComponent();
-      },
-      500
-   );
+  changeOpened(){
+   if(this.opened === null){
+    this.opened = true;
+   }
+   else{
+    this.opened = !this.opened;
+   }
+   console.log("Clicked");
+
   }
  
   resizeComponent() {
