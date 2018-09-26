@@ -1,49 +1,49 @@
 .settings-main-div{
     display: flex; 
     flex-direction: row; 
+    height: 10px;
+    width: 10px;
 }
 .open-settings{
+    position: relative;
     animation-name: open-settings-anim;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    margin-left: 20px;
-    color: lightgrey;
+    right: 10px;
+    color: white;
     cursor: pointer;
 }
 .close-settings{
+    position: relative;
     animation-name: close-settings-anim;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    margin-left: 0px;
-    color: grey;
+    right: 0px;
+    color: white;
     cursor: pointer;
 }
 
 .null-settings{
-    margin-left: 0px;
-    color: grey;
+    position: relative;
+    right: 0px;
+    color: white;
     cursor: pointer;
 }
-
 @keyframes open-settings-anim{
     from{
-       margin-left: 0px;
-       color: grey;
+       right: 0px;
     }
     to{
-       margin-left: 20px;
-       color: lightgrey;
+        right: 10px;
     }
 }
 
 @keyframes close-settings-anim{
     from{
-       margin-left: 20px;
-       color: lightgrey;
+        right: 10px;
     }
     to{
-       margin-left: 0px;
-       color: grey;
+        right: 0px;
     }
 }
 
@@ -57,7 +57,7 @@
     animation-name: open-dlt-anim;
     animation-duration: 0.5s;
     animation-iteration-count: 1;
-    font-size: 20px;
+    font-size: 15px;
     color: red;
     cursor: pointer;
 }
@@ -79,17 +79,21 @@
 @keyframes open-dlt-anim{
     from{
         font-size: 0px;
+
     }
     to{
-        font-size: 20px;
+        font-size: 15px;
+
     }
 }
 
 @keyframes close-dlt-anim{
     from{
-        font-size: 20px;
+        font-size: 15px;
+
     }
     to{
         font-size: 0px;
+
     }
 }

@@ -20,13 +20,18 @@
           [title]="'Media'" 
           [inputType]="'text'" 
           [iconClass]="'fas fa-link'"
-          [inputId]="'media-link'"
-          >
+          [inputId]="'media-link'">
         </media-input>
         <div
           *ngFor="let link of links"
-          >
-
+          id={{link.divId}}>
+          <div
+            class="add-media-settings-btn-div">
+              <settings-btn
+                [elemId]="link.divId">
+              </settings-btn>
+          </div>
+          
           <media-input 
             [title]="'Media'" 
             [inputType]="'text'" 

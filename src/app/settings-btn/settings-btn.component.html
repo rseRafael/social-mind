@@ -1,14 +1,4 @@
 <div class="settings-main-div">
-
-  <div
-    (click)="deleteElem()"
-    [class.null-dlt]="open == null"
-    [class.open-dlt]="open == true"
-    [class.close-dlt]="open == false">
-
-    <i  class="fas fa-trash-alt"></i>
-
-  </div>
   
   <div (click)="setOpen()"
        [class.null-settings]="open == null"
@@ -17,6 +7,16 @@
 
 
     <i class="fas fa-ellipsis-h"></i>
+
+  </div>
+
+  <div
+    (click)="deleteElem()"
+    [class.null-dlt]="open == null"
+    [class.open-dlt]="open == true"
+    [class.close-dlt]="open == false">
+
+    <i  class="fas fa-trash-alt"></i>
 
   </div>
 

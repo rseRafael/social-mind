@@ -2,17 +2,19 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap, timeInterval } from 'rxjs/operators';
-
+import { Location } from '@angular/common';
 
 
 class MonitorableMedia {
   mediaLinks: Array<string>;
   startDate: string;
   endDate: string;
-  constructor(mediaLinks: Array<string>, startDate: string, endDate: string){
+  mediaType: string;
+  constructor(mediaLinks: Array<string>, startDate: string, endDate: string, mediaType: string){
     this.mediaLinks = mediaLinks;
     this.startDate = startDate;
     this.endDate = endDate;
+    this.mediaType = mediaType;
   }
 }
 
@@ -26,6 +28,7 @@ class Link {
   styleUrls: ['./add-media.component.css']
 })
 export class AddMediaComponent implements OnInit, AfterViewInit {
+  public mediaTypes: Array<string> = ['facebook', 'instagram', 'twitter', 'youtube'];
   public message: String = " empty ";
   public received: Boolean = false;
   public hassent: Boolean  = false;
@@ -34,7 +37,8 @@ export class AddMediaComponent implements OnInit, AfterViewInit {
   public mediaLinks: Array<string> = [];
   public divLinkPattern = `addmedia-divLinkId-`;
   public linkIdPattern = `addmedia-idLink-`;
-  constructor(private http: HttpClient) { }
+  public mediaType: string = "";
+  constructor(private http: HttpClient, private location: Location) { }
 
   ngOnInit() {
     this.getDate();
@@ -46,6 +50,7 @@ export class AddMediaComponent implements OnInit, AfterViewInit {
     console.log("ngAfterViewInit()");
     console.log(new Date().toLocaleTimeString());
     this.getDate();
+    this.setMediaType();
   }
 
   getDate() {
@@ -76,11 +81,14 @@ export class AddMediaComponent implements OnInit, AfterViewInit {
     var mediaLink: any = document.getElementById("media-link");
     var startDate: any = document.getElementById("start-date");
     var endDate: any = document.getElementById("end-date");
-    this.getNewLinks();
+
     this.mediaLinks.push(mediaLink.value);
+    this.getNewLinks();
+    
     console.log(this.mediaLinks);
+
     if(this.verifyMediaLink(mediaLink)){
-      var mediaData: any= new MonitorableMedia(this.mediaLinks, startDate.value, endDate.value);
+      var mediaData: any= new MonitorableMedia(this.mediaLinks, startDate.value, endDate.value, this.mediaType);
       var url = "http://127.0.0.1:8000/media/add/";
       var data = new FormData();
       data.append("mediaData", JSON.stringify(mediaData));
@@ -195,5 +203,22 @@ export class AddMediaComponent implements OnInit, AfterViewInit {
     catch(Err){
       return null;
     }
+  }
+
+  setMediaType(){
+    try{
+      var url: String= this.location.path();
+      for (var media of this.mediaTypes){
+        if(url.search(media) !== -1){
+          this.mediaType = media;
+          break;
+        }
+      }
+    }
+    catch(err){
+      console.log("An error has occurred in setMediaType function.");
+      console.log(`Error:\n${err}\n-------------------------------\n`);
+    }
+    
   }
 }

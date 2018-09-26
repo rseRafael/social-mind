@@ -94,3 +94,12 @@
 .add-media-submit-btn{
     cursor: pointer;
 }
+.add-media-settings-btn-div{
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-right: 20px;
+}

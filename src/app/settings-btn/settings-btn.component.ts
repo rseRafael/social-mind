@@ -9,13 +9,11 @@ import { TestBed } from '@angular/core/testing';
 export class SettingsBtnComponent implements OnInit {
 
   public open: boolean = null;
-  @Input() elemId: any = null;
+  @Input() elemId: string = null;
   constructor() {
-
    }
 
   ngOnInit() {
-
   }
 
   setOpen(){
@@ -28,7 +26,13 @@ export class SettingsBtnComponent implements OnInit {
   }
 
   deleteElem(){
-    var elem = document.getElementById(this.elemId);
-    elem.style.display = "none";
+    try{
+      var elem = document.getElementById(this.elemId);
+      elem.style.display = "none";
+    }
+    catch(err){
+      //nothing  
+    }
+    
   }
 }

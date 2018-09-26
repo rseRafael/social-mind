@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'ctrl-btn',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ControlButtonComponent implements OnInit {
 
   public opened = null;
-
+  
   constructor() { }
 
   ngOnInit() {
@@ -21,6 +21,5 @@ export class ControlButtonComponent implements OnInit {
     else{
       this.opened = !this.opened;
     }
-   
   }
 }
