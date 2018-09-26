@@ -1,63 +1,70 @@
 <div 
-  id="addmedia-component" 
   class="addmedia-component-div">
-
-    <div 
-      class="addmedia-form">
-
-        <div 
-          id="addmedia-form-div">
-
-            <form  
-              #mediaForm="ngForm" 
-              enctype="multipart/form-data" 
-              class="addmedia-form"  
-              id="media-form" 
-              name="form-media" 
-              method="POST">
-                <media-input 
-                  [title]="'Media'" 
-                  [inputType]="'text'" 
-                  [iconClass]="'fas fa-link'">
-              </media-input>
-
-                <media-input 
-                  [title]="'Data de início'" 
-                  [inputType]="'datetime-local'" 
-                  [iconClass]="'fas fa-calendar-alt'">
-                </media-input>
-
-                <media-input 
-                  [title]="'Data de Fim'" 
-                  [inputType]="'datetime-local'" 
-                  [iconClass]="'fas fa-calendar-alt'">
-                </media-input>
-
-                <media-input 
-                  [title]="'Send'" 
-                  [inputType]="'submit'"  
-                  [iconClass]="'fas fa-location-arrow'">
-                </media-input>
-
-                <input 
-                  type="submit" 
-                  value="submit"  
-                  id="submit-btn" 
-                  [class.disabled]="hassent == true" 
-                  (click)="sendForm($event)" />
-
-            </form>
+      <!--Por algum motivo a tag #mediaForm é necessária para que os form elements apaream-->
+    <form
+      enctype="multipart/form-data" 
+      class="add-media-form"  
+      method="POST">
+        <div
+          class="add-media-plus-icon-div">
+          <button
+            class="add-media-plus-icon-btn"
+            (click)="addLink()">
+            <i 
+            class="fas fa-plus">
+            </i>
+          </button>
+         
         </div>
+        <media-input 
+          [title]="'Media'" 
+          [inputType]="'text'" 
+          [iconClass]="'fas fa-link'"
+          [inputId]="'media-link'"
+          >
+        </media-input>
+        <div
+          *ngFor="let link of links"
+          >
 
-        <br/>
-      
-        <div *ngIf="received === true" style="width: 100%; height: 250px; overflow: scroll;">
-          <p >
-            {{message}}
-          </p>
-      </div>
-    
+          <media-input 
+            [title]="'Media'" 
+            [inputType]="'text'" 
+            [iconClass]="'fas fa-link'"
+            [inputId]="link.linkId"
+            >
+         </media-input>
+        </div>
+        
 
-    </div>
+        <media-input 
+          [title]="'Data de início'" 
+          [inputType]="'datetime-local'" 
+          [iconClass]="'fas fa-calendar-alt'"
+          [inputId]="'start-date'">
+        </media-input>
+
+        <media-input 
+          [title]="'Data de Fim'" 
+          [inputType]="'datetime-local'" 
+          [iconClass]="'fas fa-calendar-alt'"
+          [inputId]="'end-date'">
+        </media-input>
+
+        <media-input 
+          [title]="'Send'" 
+          [inputType]="'submit'"  
+          [iconClass]="'fas fa-location-arrow'"
+          class="add-media-submit-btn"
+          (click)="sendForm($event)">
+        </media-input>
+
+    </form>
+
+    <div *ngIf="received === true" style="width: 100%; height: 250px; overflow: scroll;">
+      <p>
+        {{message}}
+      </p>
+  </div>
 
 </div>

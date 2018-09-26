@@ -1,3 +1,7 @@
+.no-space{
+    padding: 0px;
+    margin: 0px;
+}
 .media-input-main{
     height: 30px;
     width: 500px;
@@ -9,6 +13,7 @@
     padding: 5px;
     border-bottom: 1px solid white;
     border-top: 1px solid white;
+    margin-bottom: 10px;
 }
 .media-input-title-div{
     display: flex;
@@ -34,10 +39,7 @@
     background-color: white;
 }
 
-.no-space{
-    padding: 0px;
-    margin: 0px;
-}
+
 .media-input-input-container{
     width: 60%;
     height: 100%;
@@ -71,6 +73,7 @@
     width: 200px;
     height: 30px;
     background-color: #759aa4;
+    border: 1px solid white;
 
 }
 .media-input-submit-style{

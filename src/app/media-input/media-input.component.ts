@@ -13,6 +13,7 @@ export class MediaInputComponent implements OnInit {
   @Input() public iconClass="no-icon-class";
   @Input() public inputType="date";
   @Input() public divId = "";
+  @Input() public inputId = "";
 
   constructor() { }
 

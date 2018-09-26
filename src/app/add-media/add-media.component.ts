@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap, timeInterval } from 'rxjs/operators';
@@ -25,9 +25,7 @@ class Link {
   templateUrl: './add-media.component.html',
   styleUrls: ['./add-media.component.css']
 })
-export class AddMediaComponent implements OnInit {
-  public today: String = "1999-01-01T23:59";
-  public tomorrow: String = "1999-01-02T23:59";
+export class AddMediaComponent implements OnInit, AfterViewInit {
   public message: String = " empty ";
   public received: Boolean = false;
   public hassent: Boolean  = false;
@@ -39,34 +37,42 @@ export class AddMediaComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.resizeComponent();
-    window.onresize = () => {
-      this.resizeComponent();
-    }
     this.getDate();
-    console.log(this.today);
+    console.log("ngOnInit()");
+    console.log(new Date().toLocaleTimeString())
   }
 
-  resizeComponent() {
-    var component = document.getElementById("addmedia-component");
-    var outlet = document.getElementById("app-outlet");
-    var h = `${outlet.clientHeight}px`;
-    var w = `${outlet.clientWidth}px`;
-    component.style.height = h;
-    component.style.width = w;
-    console.log(h + ", " + w);
+  ngAfterViewInit(){
+    console.log("ngAfterViewInit()");
+    console.log(new Date().toLocaleTimeString());
+    this.getDate();
   }
 
   getDate() {
-    var ISOformat = "yyyy-mm-ddThh:mm"
-    var now = new Date();
-    this.today = now.toISOString().substring(0, ISOformat.length);
-    var tomorrow  = now.setDate(now.getDate() + 1);
-    this.tomorrow = now.toISOString().substring(0, ISOformat.length);
+    try{
+      var ISOformat = "yyyy-mm-ddThh:mm"
+      var d1: Date = new Date();
+      d1.setHours(d1.getHours() + 1);
+      var iso1 = d1.toISOString().substring(0, ISOformat.length);
+      d1.setDate(d1.getDate() + 1);
+      var d2: Date = d1;
+      var iso2 = d2.toISOString().substring(0, ISOformat.length);
+      console.log(d2.toISOString());
+      var D1: any = document.getElementById("start-date");
+      var D2: any = document.getElementById("end-date");
+      D1.value = iso1;
+      D2.value = iso2;
+    }
+    catch(err){
+      console.log("Some error has occured at getDate function.")
+      console.log(`Error:\n${err}\n-----------------------\n`);
+    }
+   
   }
 
-  sendForm(event, form){
+  sendForm(event){
     event.preventDefault();
+
     var mediaLink: any = document.getElementById("media-link");
     var startDate: any = document.getElementById("start-date");
     var endDate: any = document.getElementById("end-date");
@@ -106,6 +112,7 @@ export class AddMediaComponent implements OnInit {
       )
       this.hassent = true;
     }
+
   }
 
   httpRequestOne(){
@@ -131,12 +138,11 @@ export class AddMediaComponent implements OnInit {
   }
 
   addLink(){
-    this.newLinks +=  1;
-    let divId = this.divLinkPattern + `${this.newLinks}`;
-    let linkId = this.linkIdPattern + `${this.newLinks}`;
-    var link: Link = {divId: divId, linkId: linkId}
-    this.links.push(link);
-    this.newLinks = this.links.length;
+    let number = this.links.length;
+    let divId = this.divLinkPattern + `${number}`;
+    let linkId = this.linkIdPattern + `${number}`;
+    var newlink: Link = {divId: divId, linkId: linkId}
+    this.links.push(newlink);
   }
   deleteURLForm(link: Link){
     var elem = document.getElementById(link.divId);

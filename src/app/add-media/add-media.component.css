@@ -1,11 +1,12 @@
 .addmedia-component-div{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: white;
     align-items: center;
     height: 100%;
     width: 100%;
+    padding: 5px;
 }
 
 .addmedia-form{
@@ -15,6 +16,7 @@
     width: 100%;
     height: 100%;
     overflow: scroll;
+    background-color: #759aa4;
 }
 
 .disabled{
@@ -29,8 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    border: 2px dashed chocolate;
+    align-items: center;    
     padding: 1px;
 }
 
@@ -56,3 +57,40 @@
     border-radius: 100%;
 }
 
+.add-media-plus-icon-div{
+    width: 80%;
+    background-color: #759aa4;
+    color:white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.add-media-plus-icon-btn{
+    color:white;
+    border: 1px dashed white;
+    background-color: #759aa4;
+
+}
+
+.add-media-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #759aa4;
+    width: 550px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: scroll;
+    padding: 10px;
+    
+}
+
+.add-media-submit-btn{
+    cursor: pointer;
+}
