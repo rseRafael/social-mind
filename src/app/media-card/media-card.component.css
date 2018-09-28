@@ -1,0 +1,73 @@
+.no-margin-no-padding{
+    margin: 0px;
+    padding: 0px;
+}
+.media-card-main-div{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.media-card-header-div{
+    display: flex;
+    height: 20%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*Style*/
+    background-color: #333333;
+    color: white;
+}
+
+.media-card-content-div{
+    display: flex;
+    height: 80%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+    /*Style*/
+    background-color: white;
+
+}
+
+.media-card-no-content{
+    display: flex;
+    height: 80%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.media-card-content-media{
+    display: flex;
+    height: 10%;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.media-card-media-link{
+    display: flex;
+    height: 100%;
+    width: 50%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-card-media-date{
+    display: flex;
+    height: 100%;
+    width: 25%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

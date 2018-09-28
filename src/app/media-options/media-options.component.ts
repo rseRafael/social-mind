@@ -31,7 +31,7 @@ export class MediaOptionsComponent implements OnInit {
 
   ngOnInit() {
     this.setHeader();
-    this.resizeComponent();
+    //this.resizeComponent();
     console.log("EBA");
   }
 
@@ -66,13 +66,17 @@ export class MediaOptionsComponent implements OnInit {
   }
    
 
-  redirect(name: String) {
+  redirect(mediatype: string) {
     var currentPath = this.location.path();
-    if (currentPath.search("addmedia") != -1) {
-      this.router.navigateByUrl(`addmedia/${name}/config`);
+    var pageUrl ="";
+    if (currentPath.search("addmedia") !== -1) {
+      pageUrl = `addmedia/${mediatype}/config`;
+      this.router.navigateByUrl(pageUrl);
+      
     }
-    else if (currentPath.search("seemedia") != -1) {
-      this.router.navigateByUrl("/seemedia/config");
+    else if (currentPath.search("seemedia") !== -1) {
+      pageUrl = `/seemedia/${mediatype}/content`;
+      this.getMedia(mediatype, pageUrl);
     }
     else {
       this.dialog.open(RedirectErrorDialogComponent, {
@@ -82,5 +86,28 @@ export class MediaOptionsComponent implements OnInit {
       });
       this.Header = "Selecione uma das mídias abaixo: "
     }
+  }
+
+  getMedia(mediatype: string, nextRoute: string){
+    var url = `http://localhost:8000/media/get?mediatype=${mediatype}`;
+    var data = {
+      mediatype: "mediateste",
+    }
+    var options = {
+      method: "GET", 
+      headers: { "Content-Type": "application/json; charset=utf-8"},
+    }
+    fetch(url, options)
+    .then(response => {
+      return response.json()
+    })
+    .then( json => {
+      console.log(json);
+      this.router.navigateByUrl(nextRoute);
+    })
+    .catch(err=>{
+      console.log("Deu erro");
+      console.log(err);
+    })
   }
 }

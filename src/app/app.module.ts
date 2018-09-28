@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SettingsBtnComponent } from './settings-btn/settings-btn.component';
 import { MediaInputComponent } from './media-input/media-input.component';
+import { MediaCardComponent } from './media-card/media-card.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MediaInputComponent } from './media-input/media-input.component';
     RedirectErrorDialogComponent,
     ControlButtonComponent,
     SettingsBtnComponent,
-    MediaInputComponent
+    MediaInputComponent,
+    MediaCardComponent
   ],
   imports: [
     BrowserModule,

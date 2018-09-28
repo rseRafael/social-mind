@@ -1,11 +1,21 @@
-.media-main-div{
+.media-options-main-div{
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ede7f7;
+}
+.media-options-header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: #6b5dba;
+    color: white;
 }
 
 .media-button{
@@ -14,7 +24,7 @@
     cursor: pointer;
 }
 
-.media-options-menu{
+.media-options-menu-div{
     height: 50%;
     width: 50%;
     display: flex;

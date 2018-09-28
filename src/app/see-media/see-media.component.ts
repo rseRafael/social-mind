@@ -15,12 +15,7 @@ export class SeeMediaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dissectObj(this.location, this.locationINFO);
-    this.dissectObj(this.actRoute, this.routeINFO);
-    //this.dissectObj(this.route, this.routeINFO);
-    console.log("PATH:");
-    console.log(this.location.path());
-    console.log(this.location.isCurrentPathEqualTo(this.location.path()));
+    
   }
 
   dissectObj(targetObj: Object, sourceObj: Array<Object>, ) {

@@ -1,0 +1,49 @@
+<div
+  class="no-margin-no-padding media-card-main-div">
+
+  <div
+    class="no-margin-no-padding media-card-header-div">
+
+      <p>
+        {{header}}
+      </p>
+
+  </div>
+
+  <div
+    class="no-margin-no-padding media-card-content-div"
+    *ngIf="content.length !== 0">
+
+    <div
+      *ngFor="let media of content"
+      class="no-margin-no-padding media-card-content-media">
+
+        <p
+          class="no-margin-no-padding media-card-media-link">
+            {{media.link}}
+        </p>
+
+        <p
+          class="no-margin-no-padding media-card-media-date">
+            {{media.startdate}}
+        </p>
+
+        <p
+          class="no-margin-no-padding media-card-media-date">
+            {{media.enddate}}
+        </p>
+
+    </div>
+
+  </div>
+
+  <div
+    class="no-margin-no-padding media-card-no-content">
+
+      <p>
+        Não há midias neste tópico.
+      </p>
+
+  </div>
+
+</div>
