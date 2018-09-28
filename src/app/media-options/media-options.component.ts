@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { RedirectErrorDialogComponent } from '../redirect-error-dialog/redirect-error-dialog.component';
 import { Location } from '@angular/common';
+import { SeemediaContentService } from '../seemedia-content.service';
 
 interface Media {
   name: String;
@@ -26,7 +27,10 @@ export class MediaOptionsComponent implements OnInit {
     { name: "twitter", color: "#17ccff", divId: "media-div-tt", class: "media-icon fab fa-twitter", iconDiv: "media-icon-tt" },
     { name: "youtube", color: "#da281e", divId: "media-div-yt", class: "media-icon fab fa-youtube", iconDiv: "media-icon-yt" },
   ]
-  constructor(private routeCtrl: RouteControllerService, private router: Router, private dialog: MatDialog, private location: Location) {
+  constructor(private router: Router, 
+              private dialog: MatDialog, 
+              private location: Location,
+              private mediaService: SeemediaContentService) {
   }
 
   ngOnInit() {
@@ -102,7 +106,12 @@ export class MediaOptionsComponent implements OnInit {
       return response.json()
     })
     .then( json => {
-      console.log(json);
+      var data = json['data'];
+      data = JSON.parse(data);
+      console.log(typeof data);
+      console.log(data);
+      this.mediaService.setService(data.completos, data.monitorando, data.futuro, data.erro);
+      console.log("setado o media service");
       this.router.navigateByUrl(nextRoute);
     })
     .catch(err=>{

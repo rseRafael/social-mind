@@ -1,10 +1,198 @@
 <div 
-  class="seemedia-main-div"> 
-  
-    <div 
-      class="seemedia-content-div">
+  class="seemedia-no-space seemedia-main-div"> 
+    <div
+      class="seemedia-no-space seemedia-page-header">
+        <h3
+          class="seemedia-no-space">
+            {{header}}
+        </h3>
+    </div>
+    <!--Completos-->
+    <div
+      class="seemedia-no-space seemedia-content-div">
 
+        <div
+          class="seemedia-no-space seemedia-content-header-div">
+
+            <h5
+              class="seemedia-no-space">
+              Completos
+            </h5>
+
+        </div>
+
+        <div
+          class="seemedia-no-space seemedia-content-media-div">
+          <div
+              class="seemedia-no-space seemedia-media-row">
+                <p
+                  class="seemedia-no-space seemedia-id-paragraph seemedia-table-header">
+                    Id
+                </p>
+                <p
+                  class="seemedia-no-space seemedia-link-paragraph seemedia-table-header">
+                    Link
+                </p>
+                <p
+                  class="seemedia-no-space seemedia-date-paragraph seemedia-table-header">
+                    Início
+                </p>
+                <p
+                  class="seemedia-no-space seemedia-date-paragraph seemedia-table-header">
+                    Término
+                </p>
+
+            </div>
+
+            <div
+              class="seemedia-no-space seemedia-media-row"
+              *ngFor="let media of completos">
+                <p
+                  class="seemedia-no-space seemedia-id-paragraph">
+                    {{media.index}}
+                </p>
+                <p
+                  class="seemedia-no-space seemedia-link-paragraph">
+                  {{media.link}}
+                </p>
+                <p
+                  class="seemedia-no-space seemedia-date-paragraph">
+                  {{media.startdate}}
+                </p>
+                <p
+                  class="seemedia-no-space seemedia-date-paragraph">
+                  {{media.enddate}}
+                </p>
+
+            </div>
+
+        </div>
+        <!--Fim dos Completos-->
+
+        <!--Monitorando-->
+        <div
+          class="seemedia-no-space seemedia-content-div">
+  
+          <div
+            class="seemedia-no-space seemedia-content-header-div">
+  
+              <h5
+                class="seemedia-no-space">
+                Monitorando
+              </h5>
+  
+          </div>
+  
+          <div
+            class="seemedia-no-space seemedia-content-media-div">
+            <div
+                class="seemedia-no-space seemedia-media-row">
+                  <p
+                    class="seemedia-no-space seemedia-id-paragraph seemedia-table-header">
+                      Id
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-link-paragraph seemedia-table-header">
+                      Link
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-date-paragraph seemedia-table-header">
+                      Início
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-date-paragraph seemedia-table-header">
+                      Término
+                  </p>
+  
+              </div>
+  
+              <div
+                class="seemedia-no-space seemedia-media-row"
+                *ngFor="let media of monitorando">
+                  <p
+                    class="seemedia-no-space seemedia-id-paragraph">
+                      {{media.index}}
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-link-paragraph">
+                    {{media.link}}
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-date-paragraph">
+                    {{media.startdate}}
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-date-paragraph">
+                    {{media.enddate}}
+                  </p>
+  
+              </div>
+  
+          </div>
+          <!--Fim do Monitorando-->
+
+          <!--Futuro-->
+          <div
+          class="seemedia-no-space seemedia-content-div">
+  
+          <div
+            class="seemedia-no-space seemedia-content-header-div">
+  
+              <h5
+                class="seemedia-no-space">
+                  Futuro
+              </h5>
+  
+          </div>
+  
+          <div
+            class="seemedia-no-space seemedia-content-media-div">
+            <div
+                class="seemedia-no-space seemedia-media-row">
+                  <p
+                    class="seemedia-no-space seemedia-id-paragraph seemedia-table-header">
+                      Id
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-link-paragraph seemedia-table-header">
+                      Link
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-date-paragraph seemedia-table-header">
+                      Início
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-date-paragraph seemedia-table-header">
+                      Término
+                  </p>
+  
+              </div>
+  
+              <div
+                class="seemedia-no-space seemedia-media-row"
+                *ngFor="let media of futuro">
+                  <p
+                    class="seemedia-no-space seemedia-id-paragraph">
+                      {{media.index}}
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-link-paragraph">
+                    {{media.link}}
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-date-paragraph">
+                    {{media.startdate}}
+                  </p>
+                  <p
+                    class="seemedia-no-space seemedia-date-paragraph">
+                    {{media.enddate}}
+                  </p>
+  
+              </div>
+  
+          </div>
+          <!--Fim do Futuro-->
 
     </div>
-
+    
 </div>

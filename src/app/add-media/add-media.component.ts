@@ -38,6 +38,7 @@ export class AddMediaComponent implements OnInit, AfterViewInit {
   public divLinkPattern = `addmedia-divLinkId-`;
   public linkIdPattern = `addmedia-idLink-`;
   public mediaType: string = "";
+  public header: string = "Adicione Mídias"
   constructor(private http: HttpClient, private location: Location) { }
 
   ngOnInit() {

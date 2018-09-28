@@ -2,16 +2,21 @@
 
   <div class="no-space media-input-title-div">
 
-    <i 
-      class={{iconClass}}
-      [class.style-icon]="true === true"
-      [class.no-space]="true === true">
-    </i>
-
-    <p 
-      class="no-space style-font">
-      {{title}}
-    </p>
+    <div
+      class="no-space media-input-icon-div">
+        <i 
+          class={{iconClass}}
+          [class.style-icon]="true === true"
+          [class.no-space]="true === true">
+       </i>
+    </div>
+    <div
+      class="no-space media-input-text-div">
+        <p 
+          class="no-space style-font">
+            {{title}}
+        </p>
+    </div>
 
   </div>
 
@@ -22,7 +27,7 @@
   
   <div class="no-space media-input-input-container">
       <input 
-        class="no-space style-font media-input-style" 
+        class="no-space style-input-font media-input-style" 
         type={{inputType}}
         autocomplete="off"
         id={{inputId}}/>
@@ -30,15 +35,22 @@
 
 </div>
 <div class="no-space media-input-submit-main" *ngIf="inputType === 'submit'">
-  <input 
-    class="no-space style-font media-input-submit-style" 
-    type={{inputType}} 
-    value={{title}}/>
-  <i 
-    class={{iconClass}}
-    [class.style-icon]="true === true"
-    autocomplete="off"
-    [class.no-space]="true === true">
-  </i>
+  <div
+    class="media-input-submit-button">
+      <input 
+        class="no-space style-font media-input-submit-style" 
+        type={{inputType}} 
+        value={{title}}/>
+  </div>
+  <div
+    class="media-input-submit-icon">
+      <i 
+        class={{iconClass}}
+        [class.style-icon]="true === true"
+        autocomplete="off"
+        [class.no-space]="true === true">
+      </i>
+  </div>
+
 </div>
   

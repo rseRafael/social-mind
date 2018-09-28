@@ -1,6 +1,13 @@
 <div 
   class="addmedia-component-div">
       <!--Por algum motivo a tag #mediaForm é necessária para que os form elements apaream-->
+    <div
+      class="addmedia-no-space addmedia-component-header">
+        <h3
+          class="addmedia-no-space">
+            {{header}}
+        </h3>
+    </div>
     <form
       enctype="multipart/form-data" 
       class="add-media-form"  
@@ -43,14 +50,14 @@
         
 
         <media-input 
-          [title]="'Data de início'" 
+          [title]="'Início'" 
           [inputType]="'datetime-local'" 
           [iconClass]="'fas fa-calendar-alt'"
           [inputId]="'start-date'">
         </media-input>
 
         <media-input 
-          [title]="'Data de Fim'" 
+          [title]="'Término'" 
           [inputType]="'datetime-local'" 
           [iconClass]="'fas fa-calendar-alt'"
           [inputId]="'end-date'">
